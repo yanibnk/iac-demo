@@ -10,7 +10,12 @@ provider "aws" {
   }
 }
 
+variable "image_id" {
+  description = "AMI ID"
+  type        = string
+}
+
 resource "aws_instance" "demo" {
-  ami           = "ami-12345678"
+  ami           = var.image_id
   instance_type = "t2.micro"
 }
